@@ -5,10 +5,9 @@ public class MyLinkedListMain
 	public static void main(String[] args) 
 	{
 		MyLinkedList list = new MyLinkedList();
-		list.append(56);
-		list.append(30);
-		list.append(70);
-		//System.out.println(list.toString());
+		list.addNode(56);
+		list.addNode(70);
+		list.insertInBetween(56, 30, 70);
 		list.show();
 	}
 }

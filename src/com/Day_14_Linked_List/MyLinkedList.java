@@ -60,6 +60,27 @@ public class MyLinkedList
 		}
     	return newNode;
     }
+    
+    //insertInBetween() will insert a node in between two nodes
+    //works only when there are only two nodes in the list at beginning
+    public MyNode insertInBetween(int left, int data, int right)
+    {
+    	MyNode leftNode = new MyNode(left);
+    	MyNode rightNode = new MyNode(right);
+    	MyNode newNode = new MyNode(data);
+    	if (head == null)
+		{
+			head = null;
+			tail = null;
+		}
+    	else
+    	{
+    		head = leftNode;
+    		leftNode.next = newNode;
+    		newNode.next = rightNode;
+    	}
+    	return newNode;
+    }
 	
 	//show() will print all the elements in the list
 	public void show()

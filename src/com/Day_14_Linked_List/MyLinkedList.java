@@ -26,6 +26,23 @@ public class MyLinkedList
             tail = newNode;    
         }    
     }    
+    
+    //push() will push a new node to the head of a list
+    public MyNode push(int data)
+    {
+    	MyNode newNode = new MyNode(data);
+		if (head == null)
+		{
+			head = newNode;
+			tail = newNode;
+		}
+		else
+		{
+			newNode.next = head;
+			head = newNode;
+		}
+		return newNode;
+	}
 	
 	//show() will print all the elements in the list
 	public void show()

@@ -5,9 +5,10 @@ public class MyLinkedListMain
 	public static void main(String[] args) 
 	{
 		MyLinkedList list = new MyLinkedList();
-		list.addNode(56);		
-		list.addNode(30);
-		list.addNode(70);
+		list.push(70);
+		list.push(30);
+		list.push(56);
+		//System.out.println(list.toString());
 		list.show();
 	}
 }

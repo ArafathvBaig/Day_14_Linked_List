@@ -43,6 +43,23 @@ public class MyLinkedList
 		}
 		return newNode;
 	}
+    
+    //append() will add the node to the tail
+    public MyNode append(int data)
+    {
+    	MyNode newNode = new MyNode(data);
+    	if (head == null)
+		{
+			head = newNode;
+			tail = newNode;
+		}
+		else
+		{
+			tail.next = newNode;
+			tail = newNode;
+		}
+    	return newNode;
+    }
 	
 	//show() will print all the elements in the list
 	public void show()

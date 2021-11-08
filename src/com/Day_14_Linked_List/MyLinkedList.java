@@ -104,24 +104,36 @@ public class MyLinkedList
     	return tempNode;
     }
     
-    //
-    public int search(int data)
+    //search will search the list for the data provided
+    public MyNode search(int data)
     {
     	MyNode temp = head;
     	while((temp != null) && (temp.data != data))
     	{
     		temp = temp.next;
     	}
-    	if(temp.data == data)
-    	{
-    		return data;
-    	}
-    	else
-    	{
-    		return 0;
-    	}
+    	return temp;
     }
-	
+    
+    //insertAfter() will insert a node after a certain node
+    public MyNode insertAfter(int searchData, int insertData)
+    {
+    	MyNode searchedNode = search(searchData);
+    	if(searchedNode == null)
+    	{
+    		return searchedNode;
+    	}
+    	MyNode newNode = new MyNode(insertData);
+    	MyNode temp = searchedNode.next;
+    	searchedNode.next = newNode;
+    	newNode.next = temp;
+    	if(((searchedNode == head) && (searchedNode == tail)) || (searchedNode == tail))
+    	{
+    		tail = newNode;
+    	}
+    	return newNode;
+    }
+    
 	//show() will print all the elements in the list
 	public void show()
 	{

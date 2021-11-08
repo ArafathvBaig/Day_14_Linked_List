@@ -9,8 +9,9 @@ public class MyLinkedListMain
 		list.addNode(30);
 		list.addNode(70);
 		list.show();
-		int searchData = list.search(30);
-		System.out.println("Search Node is: "+searchData);
+		System.out.println(" ");
+		list.insertAfter(30, 40);
+		list.show();
 	}
 }
 

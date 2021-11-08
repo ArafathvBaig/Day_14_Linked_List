@@ -8,7 +8,7 @@ public class MyLinkedListMain
 		list.addNode(56);
 		list.addNode(30);
 		list.addNode(70);
-		list.popFirst();
+		list.popLast();
 		list.show();
 	}
 }

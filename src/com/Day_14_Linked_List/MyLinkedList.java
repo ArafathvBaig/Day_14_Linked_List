@@ -89,6 +89,20 @@ public class MyLinkedList
     	this.head = tempNode.next;
     	return tempNode;
     }
+    
+  //popLast() will pop the last node of list and return it
+    public MyNode popLast()
+    {    	
+    	MyNode tempNode = head;
+    	while(tempNode.next != this.tail)
+    	{
+    		tempNode = tempNode.next;
+    	}
+    	this.tail = tempNode;
+    	tempNode.next = null;
+    	tempNode = tempNode.next;
+    	return tempNode;
+    }
 	
 	//show() will print all the elements in the list
 	public void show()

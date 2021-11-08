@@ -6,8 +6,9 @@ public class MyLinkedListMain
 	{
 		MyLinkedList list = new MyLinkedList();
 		list.addNode(56);
+		list.addNode(30);
 		list.addNode(70);
-		list.insertInBetween(56, 30, 70);
+		list.popFirst();
 		list.show();
 	}
 }

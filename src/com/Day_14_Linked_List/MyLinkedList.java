@@ -81,6 +81,14 @@ public class MyLinkedList
     	}
     	return newNode;
     }
+    
+    //popFirst() will pop the first node of list and return it
+    public MyNode popFirst()
+    {
+    	MyNode tempNode = this.head;
+    	this.head = tempNode.next;
+    	return tempNode;
+    }
 	
 	//show() will print all the elements in the list
 	public void show()

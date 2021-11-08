@@ -103,6 +103,24 @@ public class MyLinkedList
     	tempNode = tempNode.next;
     	return tempNode;
     }
+    
+    //
+    public int search(int data)
+    {
+    	MyNode temp = head;
+    	while((temp != null) && (temp.data != data))
+    	{
+    		temp = temp.next;
+    	}
+    	if(temp.data == data)
+    	{
+    		return data;
+    	}
+    	else
+    	{
+    		return 0;
+    	}
+    }
 	
 	//show() will print all the elements in the list
 	public void show()

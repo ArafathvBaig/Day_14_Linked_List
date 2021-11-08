@@ -8,8 +8,9 @@ public class MyLinkedListMain
 		list.addNode(56);
 		list.addNode(30);
 		list.addNode(70);
-		list.popLast();
 		list.show();
+		int searchData = list.search(30);
+		System.out.println("Search Node is: "+searchData);
 	}
 }
 

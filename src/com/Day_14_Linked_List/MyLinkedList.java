@@ -113,6 +113,16 @@ public class MyLinkedList
     	}
     	return temp;
     }
+    //For JUnit Test 
+    public int searchTest(int data)
+    {
+    	MyNode temp = head;
+    	while((temp != null) && (temp.data != data))
+    	{
+    		temp = temp.next;
+    	}
+    	return temp.data;
+    }
     
     //insertAfter() will insert a node after a certain node
     public MyNode insertAfter(int searchData, int insertData)
@@ -131,6 +141,25 @@ public class MyLinkedList
     		tail = newNode;
     	}
     	return newNode;
+    }
+    
+    //For JUnit Test
+    public int insertAfterTest(int searchData, int insertData)
+    {
+    	MyNode searchedNode = search(searchData);
+    	if(searchedNode == null)
+    	{
+    		return 0;
+    	}
+    	MyNode newNode = new MyNode(insertData);
+    	MyNode temp = searchedNode.next;
+    	searchedNode.next = newNode;
+    	newNode.next = temp;
+    	if(((searchedNode == head) && (searchedNode == tail)) || (searchedNode == tail))
+    	{
+    		tail = newNode;
+    	}
+    	return insertData;
     }
     
   //search will search the list for the data provided
@@ -188,6 +217,50 @@ public class MyLinkedList
     	}
     	return searchedNode;
     }
+    
+  //For JUnit Test
+    public int deleteTest(int data)
+    {
+    	MyNode searchedNode = search(data);
+    	MyNode previousNode = searchDelete(data);
+    	MyNode tempNode = null;
+    	if(searchedNode == null)
+    	{
+    		return 0;
+    	}
+    	else if((searchedNode == this.head) && (searchedNode == this.tail)) 
+    	{
+    		head = head.next;
+    		tail = tail.next;
+    		return data;
+    	}
+    	else if(searchedNode == this.tail)
+    	{
+    		previousNode.next = null;
+    		this.tail = previousNode;
+    		return data;
+    	}
+    	else if(searchedNode == this.head)
+    	{
+    		tempNode = this.head;
+        	this.head = tempNode.next;
+        	return data;
+    	}
+    	else
+    	{
+    		tempNode = searchedNode;
+    		while(tempNode.next.data != tail.data)
+        	{
+    			tempNode.data = tempNode.next.data;
+    			tempNode = tempNode.next;
+        	}
+    		tempNode.data = tempNode.next.data;
+    		this.tail = tempNode;
+    		tempNode.next=null;
+    	}
+    	return data;
+    }
+    
     
 	public void sortList() 
 	{

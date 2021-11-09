@@ -12,6 +12,9 @@ public class MyLinkedListMain
 		System.out.println(" ");
 		list.insertAfter(30, 40);
 		list.show();
+		System.out.println(" ");
+		list.delete(40);
+		list.show();
 	}
 }
 

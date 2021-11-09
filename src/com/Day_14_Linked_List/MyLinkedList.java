@@ -100,7 +100,6 @@ public class MyLinkedList
     	}
     	this.tail = tempNode;
     	tempNode.next = null;
-    	tempNode = tempNode.next;
     	return tempNode;
     }
     
@@ -132,6 +131,62 @@ public class MyLinkedList
     		tail = newNode;
     	}
     	return newNode;
+    }
+    
+  //search will search the list for the data provided
+    public MyNode searchDelete(int data)
+    {
+    	MyNode temp = head;
+    	MyNode prevNode = temp;
+    	while((temp != null) && (temp.data != data))
+    	{
+    		prevNode = temp;
+    		temp = temp.next;
+    	}
+    	return prevNode;
+    }
+    
+    //delete() will delete a particular node from the list
+    public MyNode delete(int data)
+    {
+    	MyNode searchedNode = search(data);
+    	MyNode previousNode = searchDelete(data);
+    	MyNode tempNode = null;
+    	if(searchedNode == null)
+    	{
+    		return searchedNode;
+    	}
+    	else if((searchedNode == this.head) && (searchedNode == this.tail)) 
+    	{
+    		head = head.next;
+    		tail = tail.next;
+    		return searchedNode;
+    	}
+    	else if(searchedNode == this.tail)
+    	{
+    		previousNode.next = null;
+    		this.tail = previousNode;
+    		return searchedNode;
+    	}
+    	else if(searchedNode == this.head)
+    	{
+    		tempNode = this.head;
+        	this.head = tempNode.next;
+        	return searchedNode;
+    	}
+    	else
+    	{
+    		tempNode = searchedNode;
+    		while(tempNode.next.data != tail.data)
+        	{
+    			tempNode.data = tempNode.next.data;
+    			tempNode = tempNode.next;
+        	}
+    		tempNode.data = tempNode.next.data;
+    		this.tail = tempNode;
+    		tempNode.next=null;
+    	}
+    	return searchedNode;
     }
     
 	//show() will print all the elements in the list
